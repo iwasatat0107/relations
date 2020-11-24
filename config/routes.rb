@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'clients#index'
-  resources :clients
+  resources :tweets, only: [:index, :new]
 end
