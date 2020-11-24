@@ -8,7 +8,12 @@ class ClientsController < ApplicationController
   end
 
   def create
-    Client.create(client_params)
+    @client = Client.create(client_params)
+    if @client.valid?
+      redirect_to root_path
+    else
+      render :new
+    end 
   end
 
   private
