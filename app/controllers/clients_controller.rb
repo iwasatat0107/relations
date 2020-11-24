@@ -22,6 +22,10 @@ class ClientsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @client = Client.find(params[:id])
+  end
+
   private
 
   def client_params
