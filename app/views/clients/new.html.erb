@@ -1,19 +1,8 @@
 <div class="contents row">
-<% if user_signed_in? %>
-  <div class="container">
-    <h3>作成</h3>
-    <%= form_with(model: @client, local: true) do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
-       "image挿入予定"
-      <%= f.text_field :last_name, placeholder: "last_name" %>
-      <%= f.text_field :first_name, placeholder: "first_name" %>
-      <%= f.text_field :last_name_kana, placeholder: "last_name_kana" %>
-      <%= f.text_field :first_name_kana, placeholder: "first_name_kana" %>
-      <%= f.text_field :company, placeholder: "company" %>
-      <%= f.text_field :prefecture_id, placeholder: "prefecture_id" %>
-      <%= f.text_field :birthday, placeholder: "birthday" %>
-      <%= f.submit "SEND" %>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="container">
+      <h3>作成</h3>
+      <%= render partial: "form", locals: { client: @client } %>
+     </div>
   <% end %>
 </div>

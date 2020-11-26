@@ -1,5 +1,5 @@
 <div class="contents row">
-<% if user_signed_in? && current_user.id == @client.user_id %>
+  <% if user_signed_in? && current_user.id == @client.user_id %>
     <div class="more">
       <ul class="more_list">
         <li>
@@ -9,19 +9,7 @@
           <%= link_to '削除', client_path(@client.id), method: :delete %>
         </li>
       </ul>
+      <%= render partial: "client", locals: { client: @client } %>  
     </div>
-     "image挿入予定"
-      <span class="name">
-      <p><%= @client.last_name %></p>
-      <p><%= @client.first_name %></p>
-      <p><%= @client.last_name_kana %></p>
-      <p><%= @client.first_name_kana %></p>
-      <p><%= @client.company %></p>
-      <p><%= @client.prefecture_id %></p>
-      <p><%= @client.birthday %></p>
-      <span>作成者</span><%= @client.user.name %>
-      </span>
-    </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
