@@ -1,5 +1,5 @@
 <div class="contents row">
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.id == @client.user_id %>
     <div class="more">
       <ul class="more_list">
         <li>
@@ -19,6 +19,7 @@
       <p><%= @client.company %></p>
       <p><%= @client.prefecture_id %></p>
       <p><%= @client.birthday %></p>
+      <span>作成者</span><%= @client.user.name %>
       </span>
     </div>
   </div>
