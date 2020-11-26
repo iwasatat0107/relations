@@ -1,10 +1,14 @@
 <div class="contents row">
   <% @clients.each do |client| %>
-    <div class="content_post" style="background-image: url(<%= client.image %>);">
-      <p><%= client.last_name %></p>
-      <span class="name">
-        <%= client.last_name_kana %>
-      </span>
-    </div>
+    <% if user_signed_in? && current_user.id == client.user_id %>
+      <div class="more">
+        <ul class="more_list">
+          <li>
+            <%= link_to '詳細', client_path(client.id), method: :get %>
+          </li>
+        </ul>
+          <%= render partial: "client", locals: { client: client } %>
+      </div>
+    <% end %>
   <% end %>
 </div>
