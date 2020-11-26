@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @clients = Client.includes(:user)
+    @clients = Client.includes(:user).order("created_at DESC")
   end
 
   def new
