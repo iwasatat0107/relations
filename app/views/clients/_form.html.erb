@@ -1,15 +1,42 @@
 <%= form_with(model: client, local: true) do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
     "image挿入予定"
-    <%= f.text_field :last_name, placeholder: "last_name" %>
-    <%= f.text_field :first_name, placeholder: "first_name" %>
-    <%= f.text_field :last_name_kana, placeholder: "last_name_kana" %>
-    <%= f.text_field :first_name_kana, placeholder: "first_name_kana" %>
-    <%= f.text_field :company, placeholder: "company" %>
-    <div class="field">
-      <%= f.label :prefecture_id, "出身地" %>
-      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {} %>
+    <div>
+      <label class="form-text">お名前(全角)</label>
+      <span class="indispensable">必須</span>
+        <%= f.text_field :last_name, placeholder: "last_name" %>
+        <%= f.text_field :first_name, placeholder: "first_name" %>
     </div>
-    <%= f.text_field :birthday, placeholder: "birthday" %>
-    <%= f.submit "SEND" %>
+    <div>
+      <label class="form-text">お名前カナ(全角)</label>
+      <span class="indispensable">必須</span>
+        <%= f.text_field :last_name_kana, placeholder: "last_name_kana" %>
+        <%= f.text_field :first_name_kana, placeholder: "first_name_kana" %>
+    </div>
+    <div>
+      <label class="form-text">会社名</label>
+      <span class="any">任意</span>
+        <%= f.text_field :company, placeholder: "company" %>
+    </div>
+    <div class="field">
+        <label class="form-text">出身地</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {} %>
+    </div>
+      <label class="form-text">生年月日</label>
+      <span class="any">任意</span>
+      <div class='input-birth-wrap'>
+        <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+      <%= f.submit "SEND" %>
 <% end %>
