@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:destroy, :edit, :update, :show]
+  before_action :move_to_index, except: :index
 
   def index
     @clients = Client.all
@@ -46,5 +47,11 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
