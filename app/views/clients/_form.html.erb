@@ -6,7 +6,10 @@
     <%= f.text_field :last_name_kana, placeholder: "last_name_kana" %>
     <%= f.text_field :first_name_kana, placeholder: "first_name_kana" %>
     <%= f.text_field :company, placeholder: "company" %>
-    <%= f.text_field :prefecture_id, placeholder: "prefecture_id" %>
+    <div class="field">
+      <%= f.label :prefecture_id, "出身地" %>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {} %>
+    </div>
     <%= f.text_field :birthday, placeholder: "birthday" %>
     <%= f.submit "SEND" %>
 <% end %>
