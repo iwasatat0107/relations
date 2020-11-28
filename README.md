@@ -61,7 +61,7 @@
 | ----------------- | ---------- | ------------------------------- |
 | user_id           | references | null: false, foreign_key:true   |
 | client_id         | references | null: false, foreign_key:true   |
-| text              | text       |                                 | 
+| text              | text       | null: false,                    | 
 
 
 ### Association

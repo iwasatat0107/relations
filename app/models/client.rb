@@ -10,7 +10,7 @@ class Client < ApplicationRecord
   end
 
   belongs_to :user
-  has_many :memos
+  has_many :memos, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture

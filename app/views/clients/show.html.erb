@@ -21,9 +21,9 @@
     <div class="comments">
       <h4>＜メモ一覧＞</h4>
   
-        <% @memos.each do |memo| %>
+        <% @memos.each.with_index(1) do |memo, idx| %>
           <p>
-            <strong><%= memo.user.name %>：</strong>
+            <strong><%= memo.user.name %><%= idx %>：</strong>
             <%= memo.text %>
           </p>
         <% end %>
