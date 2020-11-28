@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_225253) do
+ActiveRecord::Schema.define(version: 2020_11_27_020607) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_11_23_225253) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "client_id", null: false
+    t.text "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_memos_on_client_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,4 +50,6 @@ ActiveRecord::Schema.define(version: 2020_11_23_225253) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "memos", "clients"
+  add_foreign_key "memos", "users"
 end

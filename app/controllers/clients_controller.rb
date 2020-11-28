@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:destroy, :edit, :update, :show]
+  before_action :set_client, only: [:edit, :update, :show]
   before_action :move_to_index, except: :index
 
   def index
@@ -20,7 +20,8 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client.destroy
+    client = Client.find(params[:id])
+    client.destroy
     redirect_to root_path
   end
 
@@ -37,6 +38,8 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @memo = Memo.new
+    @memos = @client.memos.includes(:user)
   end
 
   private

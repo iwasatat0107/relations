@@ -59,10 +59,9 @@
 
 | Column            | Type       | Options                         |
 | ----------------- | ---------- | ------------------------------- |
-| title             | string     | null: false                     |
-| text              | text       |                                 | 
 | user_id           | references | null: false, foreign_key:true   |
 | client_id         | references | null: false, foreign_key:true   |
+| text              | text       | null: false,                    | 
 
 
 ### Association
