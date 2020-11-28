@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   
   has_many :clients
+  has_many :memos
 end

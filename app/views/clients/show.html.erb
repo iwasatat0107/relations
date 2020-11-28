@@ -11,5 +11,25 @@
       </ul>
       <%= render partial: "client", locals: { client: @client } %>  
     </div>
-  <% end %>
+ 
+  <div class="container">
+      <%= form_with(model: [@client, @memo], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "メモする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    
+    <div class="comments">
+      <h4>＜メモ一覧＞</h4>
+  
+        <% @memos.each do |memo| %>
+          <p>
+            <strong><%= memo.user.name %>：</strong>
+            <%= memo.text %>
+          </p>
+        <% end %>
+    </div>
+    <% else %>
+      <strong><p>※※※ カードの作成、メモには新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
 </div>

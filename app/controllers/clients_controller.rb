@@ -37,6 +37,8 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @memo = Memo.new
+    @memos = @client.memos.includes(:user)
   end
 
   private
