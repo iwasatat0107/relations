@@ -20,7 +20,7 @@ class Client < ApplicationRecord
     if search != ""
       Client.where('last_name_kana LIKE(?) OR first_name_kana LIKE(?)', "%#{search}%", "%#{search}%")
     else
-      Client.all
+      Client.all.order("created_at DESC")
     end
   end
 end
