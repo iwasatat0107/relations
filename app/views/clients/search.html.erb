@@ -1,0 +1,11 @@
+<%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "お客様を検索", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents row">
+  <% @clients.each do |client| %>
+    <% if user_signed_in? && current_user.id == client.user_id %>
+      <%= render partial: "client", locals: { client: client } %>
+    <% end %>
+  <% end %>
+</div>

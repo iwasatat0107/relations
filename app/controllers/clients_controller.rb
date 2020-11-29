@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:edit, :update, :show]
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :search]
 
   def index
     @clients = Client.includes(:user).order("created_at DESC")
@@ -40,6 +40,10 @@ class ClientsController < ApplicationController
   def show
     @memo = Memo.new
     @memos = @client.memos.includes(:user)
+  end
+
+  def search
+    @clients = Client.search(params[:keyword])
   end
 
   private
