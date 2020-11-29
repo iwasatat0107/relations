@@ -6,6 +6,9 @@
           <li>
             <%= link_to '詳細', client_path(client.id), method: :get %>
           </li>
+          <li>
+            <%= link_to 'チェック', client_checks_path(client.id), method: :get %>
+          </li>
         </ul>
           <%= render partial: "client", locals: { client: client } %>
       </div>

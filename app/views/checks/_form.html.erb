@@ -1,0 +1,34 @@
+<%= form_with(model: [@client, check], local: true) do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+    <div>
+      <label class="form-text">タイトル</label>
+      <span class="indispensable">必須</span>
+        <%= f.text_field :title, placeholder: "title" %>
+    </div>
+    <div class="field">
+        <label class="form-text">笑顔</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :smile_id, Smile.all, :id, :name, {} %>
+    </div>
+    <div class="field">
+        <label class="form-text">相槌</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :aizuchi_id, Aizuchi.all, :id, :name, {} %>
+    </div>
+    <div class="field">
+        <label class="form-text">共感</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :empathy_id, Empathy.all, :id, :name, {} %>
+    </div>
+    <div class="field">
+        <label class="form-text">反応</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :reaction_id, Reaction.all, :id, :name, {} %>
+    </div>
+    <div class="field">
+        <label class="form-text">質問</label>
+        <span class="any">任意</span>
+        <%= f.collection_select :question_id, Question.all, :id, :name, {} %>
+    </div>
+      <%= f.submit "SEND" %>
+<% end %>
