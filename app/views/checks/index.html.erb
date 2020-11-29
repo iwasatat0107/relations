@@ -3,11 +3,6 @@
   <% @checks.each do |check| %>
     <% if user_signed_in? && current_user.id == check.user_id %>
       <div class="more">
-        <ul class="more_list">
-          <li>
-            <%#= link_to '詳細', client_check_path(check.id), method: :get %>
-          </li>
-        </ul>
           <%= render partial: "check", locals: { check: check } %>
       </div>
     <% end %>

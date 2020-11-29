@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'clients#index'
   resources :clients do
     resources :memos, only: :create
-    resources :checks
+    resources :checks, only: [:new, :index, :create]
   end
 end
