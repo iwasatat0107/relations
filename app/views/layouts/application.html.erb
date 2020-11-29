@@ -17,6 +17,10 @@
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "新規作成", new_client_path, class: "post" %>
+              <%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
+              <%= form.text_field :keyword, placeholder: "お客様をカタカナ検索", class: "search-input" %>
+              <%= form.submit "検索", class: "search-btn" %>
+              <% end %>
           </div>
         <% else %>
           <div class="grid-6">
