@@ -4,7 +4,10 @@
       <div class="more">
         <ul class="more_list">
           <li>
-            <%= link_to '詳細', client_path(client.id), method: :get %>
+            <%= link_to 'お客様詳細', client_path(client.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to 'セルフチェック', client_checks_path(client.id), method: :get %>
           </li>
         </ul>
           <%= render partial: "client", locals: { client: client } %>
