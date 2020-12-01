@@ -12,9 +12,10 @@
   <body>
     <header class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <h1 class="display-5"><a href="/">Re:lations</a></h1>
+        <h2 class="display-5"><a href="/"><%= image_tag 'adress.png' , size: '50x50' %>Re:lations</a></h2>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
+            <%= link_to current_user.name, '#', class: "user-nickname" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "新規作成", new_client_path, class: "post" %>
               <%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -26,7 +27,7 @@
           <div class="grid-6">
             <%= link_to "ログイン", new_user_session_path, class: "post" %>
             <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+            <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
           </div>
       </nav>
 
@@ -39,8 +40,8 @@
       人間の悩みを深く探求していくと、根本的なところは、全て、対人関係の悩みに行き着くということです。<br></p>
 
       <p class="lead">相手を正しく知ることにより、信頼してもらいやすくなると同時に、健全な対人関係を構築できます。<br>
-      また、自分をメタ認知して、きちんと反復練習をすれば、誰でも人を惹きつけることができます。<br></p>
-      <p class="lead">対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気づくのです。</p>
+      そして、自分をメタ認知して、反復練習をすれば、誰でも人を惹きつけることができます。<br></p>
+      <p class="lead">対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気づけるでしょう。</p>
       </div>
       <% end %>
     </header>
@@ -48,7 +49,11 @@
     <%= yield %>
     </div>
     <% if user_signed_in? %>
-    <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> 今日は何の日？<a>
+    <%= image_tag 'present.png' , size: '40x40' %>
+    <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> ・今日は何の日？<a>
+    <a href= "https://weathernews.jp/s/forecast/" target="_blank"> ・今日の天気は？<a>
+    <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
+    <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
     <% end %>
     <footer>
       <p>

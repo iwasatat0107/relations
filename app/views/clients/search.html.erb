@@ -1,15 +1,17 @@
 <div class="contents row">
   <% @clients.each do |client| %>
     <% if user_signed_in? && current_user.id == client.user_id %>
+      <div class="more">
         <ul class="more_list">
-          <li>
+          <button type="button" class="btn btn-outline-primary">
             <%= link_to 'お客様詳細', client_path(client.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to 'セルフチェック', client_checks_path(client.id), method: :get %>
-          </li>
+          </button>
+          <button type="button" class="btn btn-outline-secondary">
+            <%= link_to 'チェック一覧', client_checks_path(client.id), method: :get %>
+          </button>
         </ul>
       <%= render partial: "client", locals: { client: client } %>
+      </div>
     <% end %>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 <div class="contents row">
   <% if user_signed_in? && current_user.id == @client.user_id %>
     <div class="container">
-      <h3>編集</h3>
+      <h5><%= image_tag 'adress2.png' , size: '40x40' %>編集</h5>
       <%= render partial: "form", locals: { client: @client } %>
     </div>
   <% end %>
