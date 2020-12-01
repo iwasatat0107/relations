@@ -62,3 +62,6 @@ gem 'active_hash'
 gem 'bootstrap', '~> 4.5.0'
 
 gem 'jquery-rails'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

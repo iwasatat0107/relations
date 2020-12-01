@@ -1,8 +1,7 @@
 # Re:lations
-====
  
- Overview
- 対人関係で幸せになるアプリケーション
+## Overview
+ **対人関係で幸せになるアプリケーション**
 
 ## 概要
  新しい仕事を始める時・初対面の人と話す時・初めての会議など、さまざまなシーンで活用できます。
@@ -58,7 +57,6 @@
 
 ![relations](https://user-images.githubusercontent.com/72957556/100700575-20730880-33e1-11eb-9b51-56ac6dbc472e.jpeg)
 
-file:///Users/iwasatat/Downloads/ReLations.pdf
 
 # テーブル設計
 

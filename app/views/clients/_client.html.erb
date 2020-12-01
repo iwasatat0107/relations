@@ -1,8 +1,11 @@
-<div class="card" style="width: 18rem;">
-  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+<div class="card" style="width: 20rem;">
+  <% if client.image.attached? %>
+  <%= image_tag client.image.variant(resize: '400x350'), class: 'card-img-top'  %>
+  <% else %>
+  <%= image_tag "354780.png", :size =>'400x210', class: 'card-img-top' %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title">Profile</h5>
-
       <span class="name">
       <p class="card-text"><%= client.last_name %></p>
       <p class="card-text"><%= client.first_name %></p>

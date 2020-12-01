@@ -1,5 +1,9 @@
 <%= form_with(model: client, local: true) do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <%= f.file_field :image, class: 'hidden' %>
+    </label>
     <div>
       <label class="form-text">お名前(全角)</label>
       <span class="indispensable">必須</span>

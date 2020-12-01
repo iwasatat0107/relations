@@ -49,7 +49,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :company, :prefecture_id, :birthday).merge(user_id: current_user.id)
+    params.require(:client).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :company, :prefecture_id, :birthday, :image).merge(user_id: current_user.id)
   end
 
   def set_client
