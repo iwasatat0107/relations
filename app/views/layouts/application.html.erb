@@ -11,15 +11,15 @@
 
   <body>
     <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Re:lations</a></h1>
+      <nav class="navbar navbar-dark bg-dark">
+        <h1 class="display-5"><a href="/">Re:lations</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <%= link_to "新規作成", new_client_path, class: "post" %>
               <%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
               <%= form.text_field :keyword, placeholder: "お客様をカタカナ検索", class: "search-input" %>
-              <%= form.submit "検索", class: "search-btn" %>
+              <%= form.submit "検索", class: "btn btn-outline-primary my-2 my-sm-0" %>
               <% end %>
           </div>
         <% else %>
@@ -27,10 +27,28 @@
             <%= link_to "ログイン", new_user_session_path, class: "post" %>
             <%= link_to "新規登録", new_user_registration_path, class: "post" %>
           </div>
-        <% end %>
+      </nav>
+
+      <div class="starter-template">
+        <h3>このアプリは、「対人関係で幸せになるアプリケーション」です。</h3>
+
+      <p class="lead">新しい仕事を始める時・初対面の人と話す時・初めての会議など、さまざまなシーンで活用できます。<br>
+      
+      <p class="lead">アドラー心理学では、人間の悩みは、全て、対人関係の悩みであると言っています。<br>
+      人間の悩みを深く探求していくと、根本的なところは、全て、対人関係の悩みに行き着くということです。<br></p>
+
+      <p class="lead">相手を正しく知ることにより、覚えてくれてる思ってもらえると同時に、健全な対人関係を構築できます。<br>
+      また、自分をメタ認知して、きちんと反復練習をすれば、誰でも人を惹きつけることができます。<br></p>
+      <p class="lead">対人関係を正しく構築できれば、この世界は、非常に生きやすく、楽しく、幸せで満ちていることに気づくのです。</p>
       </div>
+      <% end %>
     </header>
+    <div class='container'>
     <%= yield %>
+    </div>
+    <% if user_signed_in? %>
+    <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> 今日は何の日？<a>
+    <% end %>
     <footer>
       <p>
         Copyright Re:lations 2020.

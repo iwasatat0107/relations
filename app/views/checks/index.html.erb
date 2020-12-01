@@ -1,6 +1,9 @@
 <div class="contents row">
+  <div class="more">
     <% if user_signed_in? && current_user.id == @client.user_id %>
+        <button type="button" class="btn btn-outline-secondary">
         <%= link_to "セルフチェック開始", new_client_check_path, class: "post", method: :get %>
+        </button>
     <% end %>
   <% @checks.each do |check| %>
     <% if user_signed_in? && current_user.id == check.user_id %>
@@ -9,4 +12,5 @@
       </div>
     <% end %>
   <% end %>
+  </div>
 </div>

@@ -1,12 +1,16 @@
-</div>
-   "image挿入予定"
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Profile</h5>
+
       <span class="name">
-      <p><%= client.last_name %></p>
-      <p><%= client.first_name %></p>
-      <p><%= client.last_name_kana %></p>
-      <p><%= client.first_name_kana %></p>
-      <p><%= client.company %></p>
-      <p><%= client.prefecture.name %></p>
-      <p><%= client.birthday %></p>
+      <p class="card-text"><%= client.last_name %></p>
+      <p class="card-text"><%= client.first_name %></p>
+      <p class="card-text"><%= client.last_name_kana %></p>
+      <p class="card-text"><%= client.first_name_kana %></p>
+      <p class="card-text"><%= client.company %></p>
+      <p class="card-text"><%= client.prefecture.name %></p>
+      <p class="card-text"><%= client.birthday %></p>
       </span>
+  </div>
 </div>
