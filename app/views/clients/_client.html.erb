@@ -1,8 +1,8 @@
 <div class="card" style="width: 20rem;">
   <% if client.image.attached? %>
-  <%= image_tag client.image.variant(resize: '400x400'), class: 'card-img-top'  %>
+  <%= image_tag client.image.variant(resize: '400x350'), class: 'card-img-top'  %>
   <% else %>
-  <%= image_tag "354780.png", :size =>'300x200', class: 'card-img-top' %>
+  <%= image_tag "354780.png", :size =>'400x210', class: 'card-img-top' %>
   <% end %>
   <div class="card-body">
     <h5 class="card-title">Profile</h5>
