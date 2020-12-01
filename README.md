@@ -56,7 +56,9 @@
 
 ## データベース設計
 
-https://lucid.app/lucidchart/invitations/accept/1823713e-0b29-4088-999d-7a231539a106
+![relations](https://user-images.githubusercontent.com/72957556/100700575-20730880-33e1-11eb-9b51-56ac6dbc472e.jpeg)
+
+file:///Users/iwasatat/Downloads/ReLations.pdf
 
 # テーブル設計
 
