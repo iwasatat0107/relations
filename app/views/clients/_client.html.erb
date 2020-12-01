@@ -1,16 +1,14 @@
-<div class="card" style="width: 20rem;">
+<div class="card" style="width: 18rem;">
   <% if client.image.attached? %>
-  <%= image_tag client.image.variant(resize: '400x350'), class: 'card-img-top'  %>
+  <%= image_tag client.image.variant(resize: '300x300'), class: 'card-img-top'  %>
   <% else %>
-  <%= image_tag "354780.png", :size =>'400x210', class: 'card-img-top' %>
+  <%= image_tag "noimage.png", :size =>'150x190', class: 'card-img-top' %>
   <% end %>
   <div class="card-body">
     <h5 class="card-title">Profile</h5>
       <span class="name">
-      <p class="card-text"><%= client.last_name %></p>
-      <p class="card-text"><%= client.first_name %></p>
-      <p class="card-text"><%= client.last_name_kana %></p>
-      <p class="card-text"><%= client.first_name_kana %></p>
+      <p class="card-text"><%= client.last_name %><%= client.first_name %> 様</p>
+      <p class="card-text"><%= client.last_name_kana %><%= client.first_name_kana %> 様</p>
       <p class="card-text"><%= client.company %></p>
       <p class="card-text"><%= client.prefecture.name %></p>
       <p class="card-text"><%= client.birthday %></p>

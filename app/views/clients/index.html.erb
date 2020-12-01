@@ -15,3 +15,14 @@
     <% end %>
   <% end %>
 </div>
+<% if user_signed_in? %>
+    <%= link_to(new_client_path, class: 'purchase-btn') do %>
+    <span class='purchase-btn-text'>新規作成</span>
+    <%= image_tag 'hands.png' , size: '90x90' ,class: "purchase-btn-icon" %>
+    <% end %>
+  <% else %>
+    <%= link_to(new_user_session_path, class: 'purchase-btn') do %>
+    <span class='purchase-btn-text'>新規作成</span>
+    <%= image_tag 'hands.png' , size: '90x90' ,class: "purchase-btn-icon" %>
+    <% end %>
+<% end %>

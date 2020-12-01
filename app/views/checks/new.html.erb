@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <div class="container">
 
-      <h3>セルフチェック</h3>
+      <h5><%= image_tag 'note.png' , size: '40x40' %>セルフチェック</h5>
       
       <%= render partial: "form", locals: { check: @check } %>
      </div>
