@@ -1,3 +1,10 @@
+<% if user_signed_in? %>
+      <ul class="more_list">
+        <button type="button" class="btn btn-outline-secondary">
+        <%= link_to "お客様カード新規作成", new_client_path, class: "post", method: :get %>
+        </button>
+      </ul>
+<% end %>
 <div class="contents row">
   <% @clients.each do |client| %>
     <% if user_signed_in? && current_user.id == client.user_id %>

@@ -23,9 +23,14 @@
   
         <% @memos.each.with_index(1) do |memo, idx| %>
           <p>
-            <strong><%= memo.user.name %><%= idx %>：</strong>
+            <strong><%= memo.user.name %>のメモ その<%= idx %>：</strong>
             <%= memo.text %>
           </p>
+        <ul class="more_list">
+          <li>
+            <%= link_to 'メモ削除', client_memo_path(memo.client.id, memo.id), method: :delete %>
+          </li>
+        </ul>
         <% end %>
     </div>
     <% else %>

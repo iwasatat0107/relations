@@ -12,7 +12,7 @@
   <body>
     <header class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <h2 class="display-5"><a href="/"><%= image_tag 'adress.png' , size: '50x50' %>Re:lations</a></h2>
+        <h2 class="display-5"><a href="/"><%= image_tag 'adress2.png' , size: '40x40' %>Re:lations</a></h2>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to current_user.name, '#', class: "user-nickname" %>
@@ -31,18 +31,69 @@
           </div>
       </nav>
 
-      <div class="starter-template">
-        <h3>このアプリは、「対人関係で幸せになるアプリケーション」です。</h3>
-
-      <p class="lead">新しい仕事を始める時・初対面の人と話す時・初めての会議など、さまざまなシーンで活用できます。<br>
-      
-      <p class="lead">アドラー心理学では、人間の悩みは、全て、対人関係の悩みであると言っています。<br>
-      人間の悩みを深く探求していくと、根本的なところは、全て、対人関係の悩みに行き着くということです。<br></p>
-
-      <p class="lead">相手を正しく知ることにより、信頼してもらいやすくなると同時に、健全な対人関係を構築できます。<br>
-      そして、自分をメタ認知して、反復練習をすれば、誰でも人を惹きつけることができます。<br></p>
-      <p class="lead">対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気づけるでしょう。</p>
+      <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1 class="text-dark">Welcome to <%= image_tag 'adress2.png' , size: '35x35' %>Re:lations</h1>
+      <p class="lead">例えるならこのアプリケーションは、「対人関係で、幸せに気付ける」現代のビジネスカードです。</p>
+    </div>
+  </header>
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><%= image_tag 'noimage.png' , size: '40x40' %>About</h2>
+          <p class="lead">お客様とオンライン上で話すときや、自分自身への振り返りに活用できます。</p>
+          <ul>
+            <p>アドラー心理学では、「人間の悩みは、全て対人関係の悩みである」といわれています。</p>
+            <li>相手の情報を正しく知り、記録することにより、信頼を得やすくなります。</li>
+            <li>自分をメタ認知して、反復練習を積めば、傾聴力を高めることができます。</li>
+            <p>Re:lationsで対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気がつくでしょう。</p>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><%= image_tag 'hands.png' , size: '40x40' %>Issue</h2>
+          <p class="lead">解決したい課題は、オンライン上での対人関係にあります。</p>
+          <ul>
+          <p>課題の背景には、リモートでのビジネスが増え、名刺交換の場面が減ったことがあります。</p>
+          <p>現代のビジネスパーソンは、対人関係の構築方法も変化しているのではないかと考えました。</p>
+            <li>初対面で顔と名前が覚えられない。</li>
+            <li>過去に聞いた情報や話題を忘れてしまう。</li>
+            <li>自分自身を振り返る機会が少ない。</li>
+            <li>気の利いた話題が思いつかない。</li>
+          <p>オンライン上でのビジネスでは、突発的な雑談やコミュニケーションが生まれにくいようです。Re:lationsがなければ、名前や情報を間違えて失礼になったり、何を話していいか分からなくなり、沈黙や気まずい空気になるかもしれません。</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><%= image_tag 'note.png' , size: '40x40' %>Functions</h2>
+          <p class="lead">オンライン上の対人関係を正しく構築する為の機能を紹介します。</p>
+          <ul>
+            <p>相手の情報を正確に記録し、自分自身を振り返る事が主な機能です。</p>
+            <li>相手の顔やプロフィールが分かる機能</li>
+            <li>話した内容やメモを記録できる機能</li>
+            <li>相手の名前から検索できる機能</li>
+            <li>自分自身で傾聴力をチェックする機能</li>
+            <li>今日のニュースや天気、雑談のネタを提供する機能</li>
+          <p>Re:lationsの機能は、オンラインビジネスにおけるコミュニケーションの最適解です。</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
       <% end %>
     </header>
     <div class='container'>
@@ -55,10 +106,10 @@
     <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
     <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
     <% end %>
-    <footer>
-      <p>
-        Copyright Re:lations 2020.
-      </p>
+    <footer class="py-1 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; 2020 Tatsuhiro Iwasaki</p>
+    </div>
     </footer>
   </body>
 </html>
