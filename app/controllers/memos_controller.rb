@@ -6,7 +6,7 @@ class MemosController < ApplicationController
 
   def destroy
     Memo.find_by(id: params[:id], client_id: params[:client_id]).destroy
-    redirect_to clients_path
+    redirect_to request.referer
   end
 
   private
