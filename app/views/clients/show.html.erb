@@ -15,7 +15,7 @@
   <div class="container">
       <%= form_with(model: [@client, @memo], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "メモする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <%= form.submit "記録" %>
       <% end %>
     
     <div class="comments">
@@ -27,9 +27,8 @@
             <%= memo.text %>
           </p>
         <ul class="more_list">
-          <li>
+          <i class="fa fa-trash my-blue"></i> 
             <%= link_to 'メモ削除', client_memo_path(memo.client.id, memo.id), method: :delete %>
-          </li>
         </ul>
         <% end %>
     </div>

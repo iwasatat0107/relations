@@ -1,9 +1,10 @@
     <% if user_signed_in? && current_user.id == @client.user_id %>
       <ul class="more_list">
         <button type="button" class="btn btn-outline-secondary">
-        <%= image_tag 'note.png' , size: '30x30' %>
+        <i class="fa fa-thumbs-up fa-2x "></i> 
         <%= link_to "セルフチェック開始", new_client_check_path, class: "post", method: :get %>
         </button>
+        <%= render partial: "clients/client", locals: { client: @client } %>
       </ul>
     <% end %>
 <div class="contents row">

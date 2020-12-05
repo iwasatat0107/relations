@@ -1,7 +1,7 @@
 <div class="contents row">
   <% if user_signed_in? && current_user.id == @client.user_id %>
     <div class="container">
-      <h5>編集</h5>
+      <h5><i class="fa fa-edit fa-2x "></i> 編集</h5>
       <%= render partial: "form", locals: { client: @client } %>
     </div>
   <% end %>
