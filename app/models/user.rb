@@ -17,5 +17,6 @@ class User < ApplicationRecord
   has_many :clients, dependent: :destroy
   has_many :memos, dependent: :destroy
   has_many :checks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 end

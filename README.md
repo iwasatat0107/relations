@@ -129,9 +129,23 @@
 - belongs_to :user
 - has_one :client
 
+
+## favorites テーブル
+
+| Column            | Type       | Options                         |
+| ----------------- | ---------- | ------------------------------- |
+| user_id           | references | null: false, foreign_key:true   |
+| client_id         | references | null: false, foreign_key:true   |
+
+
+### Association
+
+- belongs_to :user
+- has_one :client
+
 ## 使用技術・言語
 フロントエンド(javascript, jQuery, HTML/CSS, Sass)
-バックエンド(Ruby on Rails6.0)
+バックエンド(Ruby on Rails6.0 )
 テスト(RSpec, FactoryBot)
 データベース(Sequel Pro)
 開発環境(MacOS, VScode, Git, GitHub)
