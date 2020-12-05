@@ -1,4 +1,14 @@
 <div class="card" style="width: 14rem;">
+  <% if current_user.already_favorited?(client) %>
+    <%= link_to client_favorites_path(client), method: :delete do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+  <% else %>
+    <%= link_to client_favorites_path(client), method: :post do %>
+      <i class="far fa-star"></i>
+    <% end %>
+  <% end %>
+
   <% if client.image.attached? %>
   <%= image_tag client.image.variant(resize: '300x300'), class: 'card-img-top'  %>
   <% else %>

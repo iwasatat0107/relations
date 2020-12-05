@@ -19,4 +19,8 @@ class User < ApplicationRecord
   has_many :checks, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  def already_favorited?(client)
+    self.favorites.exists?(client_id: client.id)
+  end
+
 end
