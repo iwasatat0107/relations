@@ -1,3 +1,11 @@
+<% if user_signed_in? %>
+      <ul class="more_list">
+        <button type="button" class="btn btn-outline-secondary">
+        <%= image_tag 'hands.png' , size: '50x50' %>
+        <%= link_to "お客様カード新規作成", new_client_path, class: "post", method: :get %>
+        </button>
+      </ul>
+<% end %>
 <div class="contents row">
   <% @clients.each do |client| %>
     <% if user_signed_in? && current_user.id == client.user_id %>
@@ -6,7 +14,7 @@
           <button type="button" class="btn btn-outline-primary">
             <%= link_to 'お客様詳細', client_path(client.id), method: :get %>
           </button>
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" class="btn btn-outline-primary">
             <%= link_to 'チェック一覧', client_checks_path(client.id), method: :get %>
           </button>
         </ul>
@@ -15,6 +23,15 @@
     <% end %>
   <% end %>
 </div>
+
+<% if user_signed_in? %>
+      <%= image_tag 'present.png' , size: '30x30' %>
+        <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> ・今日は何の日？<a>
+        <a href= "https://weathernews.jp/s/forecast/" target="_blank"> ・今日の天気は？<a>
+        <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
+        <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
+    <% end %>
+
 <% if user_signed_in? %>
     <%= link_to(new_client_path, class: 'purchase-btn') do %>
     <span class='purchase-btn-text'>新規作成</span>

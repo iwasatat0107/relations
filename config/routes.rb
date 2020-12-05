@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root to: 'clients#index'
   resources :clients do
-    resources :memos, only: :create
+    resources :memos, only: [:create, :destroy]
     resources :checks, only: [:new, :index, :create]
     collection do
       get 'search'

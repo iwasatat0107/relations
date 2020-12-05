@@ -1,7 +1,7 @@
 <div class="contents row">
   <% if user_signed_in? %>
     <div class="container">
-      <h5><%= image_tag 'hands.png' , size: '40x40' %>作成</h5>
+      <h5><i class="fa fa-edit fa-2x "></i> 作成</h5>
       <%= render partial: "form", locals: { client: @client } %>
      </div>
   <% end %>

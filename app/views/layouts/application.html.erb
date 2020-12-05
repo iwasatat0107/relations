@@ -4,6 +4,7 @@
     <title>Re:lations</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('hands.png') %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,53 +13,86 @@
   <body>
     <header class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <h2 class="display-5"><a href="/"><%= image_tag 'adress.png' , size: '50x50' %>Re:lations</a></h2>
-        <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-            <%= link_to current_user.name, '#', class: "user-nickname" %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "新規作成", new_client_path, class: "post" %>
-              <%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
-              <%= form.text_field :keyword, placeholder: "お客様をカタカナ検索", class: "search-input" %>
-              <%= form.submit "検索", class: "btn btn-outline-primary my-2 my-sm-0" %>
-              <% end %>
-          </div>
-        <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
-          </div>
-      </nav>
-
-      <div class="starter-template">
-        <h3>このアプリは、「対人関係で幸せになるアプリケーション」です。</h3>
-
-      <p class="lead">新しい仕事を始める時・初対面の人と話す時・初めての会議など、さまざまなシーンで活用できます。<br>
-      
-      <p class="lead">アドラー心理学では、人間の悩みは、全て、対人関係の悩みであると言っています。<br>
-      人間の悩みを深く探求していくと、根本的なところは、全て、対人関係の悩みに行き着くということです。<br></p>
-
-      <p class="lead">相手を正しく知ることにより、信頼してもらいやすくなると同時に、健全な対人関係を構築できます。<br>
-      そして、自分をメタ認知して、反復練習をすれば、誰でも人を惹きつけることができます。<br></p>
-      <p class="lead">対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気づけるでしょう。</p>
-      </div>
-      <% end %>
-    </header>
-    <div class='container'>
-    <%= yield %>
-    </div>
+        <h2 class="display-5"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations</a></h2>
     <% if user_signed_in? %>
-    <%= image_tag 'present.png' , size: '40x40' %>
-    <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> ・今日は何の日？<a>
-    <a href= "https://weathernews.jp/s/forecast/" target="_blank"> ・今日の天気は？<a>
-    <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
-    <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
+          <div class="user_nav grid-6">
+            <i class="fa fa-user my-blue"></i> <%= link_to current_user.name, '#', class: "user-nickname" %>
+            <i class="fa fa-hand-paper my-blue"></i> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= form_with(url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form.text_field :keyword, placeholder: "お客様をカタカナ検索", class: "search-input" %>
+            <%= form.submit "検索", class: "btn btn-outline-primary my-2 my-sm-0" %>
+          <% end %>
+          </div>
+    <% else %>
+          <div class="grid-6">
+            <i class="fa fa-hand-pointer my-blue"></i> <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
+            <i class="fa fa-globe my-blue"></i> <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+            <i class="fa fa-key my-blue"></i> <%= link_to "ログイン", new_user_session_path, class: "post" %>
+          </div>
     <% end %>
-    <footer>
-      <p>
-        Copyright Re:lations 2020.
-      </p>
+      </nav>
+    </header>
+        <div class='container'>
+          <%= yield %>
+        </div>
+    <% unless user_signed_in? %>
+      <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1 class="text-dark">Welcome to <%= image_tag 'hands.png' , size: '50x50' %>Re:lations</h1>
+      <p class="lead">このアプリケーションは、「対人関係で、幸せに気がつく」現代のビジネスカードです。</p>
+    </div>
+  </header>
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><i class="fa fa-street-view fa-2x "></i> About</h2>
+          <p class="lead">人の悩みは、対人関係</p>
+          <ul>
+            <p>アドラー心理学では、「人間の悩みは、全て対人関係の悩みである」といわれています。</p>
+            <p>正しい対人関係を構築できれば、この世界は、幸せで満ちていることに気がつくでしょう。</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><i class="fa fa-laptop fa-2x "></i> Issue</h2>
+          <p class="lead">オンラインでの対人関係の増加</p>
+          <ul>
+          <p>課題の背景は、ビジネスパーソンのリモート業務が増加したことです。</p>
+          <p>オンラインでは、名刺交換や雑談や減り、コミュニケーションも変化しています。</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2><i class="fa fa-thumbs-up fa-2x "></i> Functions</h2>
+          <p class="lead">お客様とオンラインで会話して、成長できる自分に</p>
+          <ul>
+            <p>相手の情報をカードに記録し、自分自身を振り返る事が主な機能です。</p>
+            <p>Re:lationsは、オンラインビジネスにおけるコミュニケーションの最適解です。</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+    <% end %>
+    <h5 class="display-5 text-center"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations TOP</a>
+    <i class="fa fa-home my-blue"></i> </h5>
+    <footer class="py-1 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; 2020 Tatsuhiro Iwasaki</p>
+    </div>
     </footer>
   </body>
 </html>

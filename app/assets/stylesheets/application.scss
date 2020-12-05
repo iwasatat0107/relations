@@ -13,6 +13,14 @@
 
 
  */
+
+ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+ @import '@fortawesome/fontawesome-free/scss/fontawesome';
+ @import '@fortawesome/fontawesome-free/scss/solid';
+ @import '@fortawesome/fontawesome-free/scss/regular';
+ @import '@fortawesome/fontawesome-free/scss/brands';
+ @import '@fortawesome/fontawesome-free/scss/v4-shims';
+
  @import "bootstrap";
 
  body {
@@ -32,25 +40,32 @@
  }
 
  .purchase-btn {
-  width: 110px;
-  background:#007bff;
+  width: 100px;
+  background: #6c757d;
   text-align: center;
-  border-radius: 16%;
-  bottom: 26px;
-  right: 26px;
+  border-radius: 10%;
+  bottom: 28px;
+  right: 16px;
   position: fixed;
-  padding: 10px;
+  padding: 1px;
 }
 
 .purchase-btn-text {
   color: white;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .purchase-btn-icon {
-  width: 70%;
+  width: 60%;
 }
 
+img {
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+}
+
+.my-blue {color: #007bff}
