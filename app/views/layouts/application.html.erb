@@ -13,7 +13,7 @@
   <body>
     <header class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <h2 class="display-5"><a href="/"><%= image_tag 'hands.png' , size: '50x50' %>Re:lations</a></h2>
+        <h2 class="display-5"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations</a></h2>
     <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to current_user.name, '#', class: "user-nickname" %>
@@ -88,14 +88,7 @@
     </div>
   </section>
     <% end %>
-
-    <% if user_signed_in? %>
-      <%= image_tag 'present.png' , size: '40x40' %>
-        <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> ・今日は何の日？<a>
-        <a href= "https://weathernews.jp/s/forecast/" target="_blank"> ・今日の天気は？<a>
-        <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
-        <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
-    <% end %>
+    <h5 class="display-5 text-center"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations TOP</a></h5>
     <footer class="py-1 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; 2020 Tatsuhiro Iwasaki</p>

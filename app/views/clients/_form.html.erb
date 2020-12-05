@@ -1,8 +1,10 @@
-<%= form_with(model: client, local: true) do |f| %>
+<%= form_with(model: client, id: 'new_client', local: true) do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
     <label class="form-image">
       <span class="image-file">画像</span>
       <%= f.file_field :image, class: 'hidden' %>
+      <div id="image-list"></div>
+      <%= image_tag client.image.variant(resize: '300x300'), id: 'image' if client.image.present? %> 
     </label>
     <div>
       <label class="form-text">お名前(全角)</label>
@@ -41,5 +43,5 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-      <%= f.submit "SEND" %>
+      <%= f.submit('完了',class: 'btn btn-primary btn-lg my-1 mb-5 px-5')%>
 <% end %>
