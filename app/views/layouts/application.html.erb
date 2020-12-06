@@ -13,7 +13,7 @@
   <body>
     <header class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <h2 class="display-5"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations</a></h2>
+        <h2 class="display-5"><a href="/"><i class="far fa-address-card"></i> Re:lations</a></h2>
     <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <i class="fa fa-user my-blue"></i> <%= link_to current_user.name, '#', class: "user-nickname" %>
@@ -26,22 +26,29 @@
     <% else %>
           <div class="grid-6">
             <i class="fa fa-hand-pointer my-blue"></i> <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
-            <i class="fa fa-globe my-blue"></i> <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+            <i class="far fa-address-card my-blue"></i> <%= link_to "新規登録", new_user_registration_path, class: "post" %>
             <i class="fa fa-key my-blue"></i> <%= link_to "ログイン", new_user_session_path, class: "post" %>
           </div>
     <% end %>
       </nav>
+    <header class="bg-primary text-white">
+    <div class="container text-center">
+      <p class="lead">社内用 顧客カード 管理アプリ</p>
+      <h1 class="text-white">
+      <% unless user_signed_in? %>
+      Welcome to
+      <% end %>
+      <i class="far fa-address-card"></i>Re:lations</h1>
+      <% unless user_signed_in? %>
+      <p class="lead">リレーションズは、「対人関係で、幸せに気がつく」現代のビジネスカードです。</p>
+      <% end %>
+    </div>
+  </header>
     </header>
         <div class='container'>
           <%= yield %>
         </div>
     <% unless user_signed_in? %>
-      <header class="bg-primary text-white">
-    <div class="container text-center">
-      <h1 class="text-dark">Welcome to <%= image_tag 'hands.png' , size: '50x50' %>Re:lations</h1>
-      <p class="lead">このアプリケーションは、「対人関係で、幸せに気がつく」現代のビジネスカードです。</p>
-    </div>
-  </header>
   <section id="about">
     <div class="container">
       <div class="row">
@@ -79,16 +86,15 @@
           <h2><i class="fa fa-thumbs-up fa-2x "></i> Functions</h2>
           <p class="lead">お客様とオンラインで会話して、成長できる自分に</p>
           <ul>
-            <p>相手の情報をカードに記録し、自分自身を振り返る事が主な機能です。</p>
-            <p>Re:lationsは、オンラインビジネスにおけるコミュニケーションの最適解です。</p>
+            <p>お客様の情報をカードに記録し、社内で共有ができます。</p>
+            <p>社員は自分の態度を振り返り記録して、傾聴力が向上します。</p>
           </ul>
         </div>
       </div>
     </div>
   </section>
     <% end %>
-    <h5 class="display-5 text-center"><a href="/"><%#= image_tag 'hands.png' , size: '50x50' %>Re:lations TOP</a>
-    <i class="fa fa-home my-blue"></i> </h5>
+    <h5 class="display-5 text-center"><a href="/"><i class="far fa-address-card"></i>Re:lations TOP</a></h5>
     <footer class="py-1 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; 2020 Tatsuhiro Iwasaki</p>

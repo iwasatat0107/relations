@@ -4,5 +4,9 @@
       <h5><i class="fa fa-edit fa-2x "></i> 編集</h5>
       <%= render partial: "form", locals: { client: @client } %>
     </div>
+  <% else %>
+    <div class="container">
+      <h5 class="m-0 text-center text-dark">カードの編集、削除、メモの削除、セルフチェックは作成者に限ります。</h5>
+    </div>
   <% end %>
 </div>

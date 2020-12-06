@@ -1,6 +1,6 @@
 <div class="contents row">
   <% @clients.each do |client| %>
-    <% if user_signed_in? && current_user.id == client.user_id %>
+    <% if user_signed_in? %>
       <div class="more">
         <ul class="more_list">
           <button type="button" class="btn btn-outline-primary">

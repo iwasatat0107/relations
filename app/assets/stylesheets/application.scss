@@ -40,10 +40,11 @@
  }
 
  .purchase-btn {
-  width: 100px;
+  height: 120px;
+  width: 90px;
   background: #6c757d;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 5%;
   bottom: 28px;
   right: 16px;
   position: fixed;
@@ -59,7 +60,7 @@
 }
 
 .purchase-btn-icon {
-  width: 60%;
+  width: 100%;
 }
 
 img {

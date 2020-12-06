@@ -1,10 +1,14 @@
 <div class="contents row">
-  <% if user_signed_in? %>
+<% if user_signed_in? && current_user.id == @client.user.id %>
     <div class="container">
 
       <h5><i class="fa fa-edit fa-2x "></i> セルフチェック</h5>
       
       <%= render partial: "form", locals: { check: @check } %>
      </div>
-  <% end %>
+  <% else %>
+    <div class="container">
+      <h5 class="m-0 text-center text-dark">カードの編集、削除、メモの削除、セルフチェックは作成者に限ります。</h5>
+    </div>
+<% end %>
 </div>

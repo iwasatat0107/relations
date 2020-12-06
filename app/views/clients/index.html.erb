@@ -8,31 +8,33 @@
 <% end %>
 <div class="contents row">
   <% @clients.each do |client| %>
-    <% if user_signed_in? && current_user.id == client.user_id %>
+    <% if user_signed_in? %>
       <div class="more">
         <ul class="more_list">
+        <%= render partial: "client", locals: { client: client } %>
           <button type="button" class="btn btn-outline-primary">
-            <%= link_to 'お客様詳細', client_path(client.id), method: :get %>
+            <%= link_to 'お客様メモ', client_path(client.id), method: :get %>
           </button>
+        <% if user_signed_in? && current_user.id == client.user.id %>
           <button type="button" class="btn btn-outline-primary">
-            <%= link_to 'チェック一覧', client_checks_path(client.id), method: :get %>
+            <%= link_to 'セルフチェック', client_checks_path(client.id), method: :get %>
           </button>
+        <% end %>
         </ul>
-          <%= render partial: "client", locals: { client: client } %>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
       <%= image_tag 'present.png' , size: '30x30' %>
         <a href= "https://ja.wikipedia.org/wiki/Template:%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5" target="_blank"> ・今日は何の日？<a>
         <a href= "https://weathernews.jp/s/forecast/" target="_blank"> ・今日の天気は？<a>
         <a href= "https://jp.reuters.com/news/topNews" target="_blank"> ・トップニュース<a>
         <a href= "https://talkgacha.com/" target="_blank"> ・お困りの方はこちら<a>
-    <% end %>
+  <% end %>
 
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
     <%= link_to(new_client_path, class: 'purchase-btn') do %>
     <span class='purchase-btn-text'>新規作成</span>
     <%= image_tag 'hands.png' , size: '90x90' ,class: "purchase-btn-icon" %>
@@ -42,4 +44,4 @@
     <span class='purchase-btn-text'>新規作成</span>
     <%= image_tag 'hands.png' , size: '90x90' ,class: "purchase-btn-icon" %>
     <% end %>
-<% end %>
+  <% end %>
