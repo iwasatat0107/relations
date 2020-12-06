@@ -13,11 +13,13 @@
         <ul class="more_list">
         <%= render partial: "client", locals: { client: client } %>
           <button type="button" class="btn btn-outline-primary">
-            <%= link_to 'お客様詳細', client_path(client.id), method: :get %>
+            <%= link_to 'お客様メモ', client_path(client.id), method: :get %>
           </button>
+        <% if user_signed_in? && current_user.id == client.user.id %>
           <button type="button" class="btn btn-outline-primary">
-            <%= link_to 'チェック一覧', client_checks_path(client.id), method: :get %>
+            <%= link_to 'セルフチェック', client_checks_path(client.id), method: :get %>
           </button>
+        <% end %>
         </ul>
       </div>
     <% end %>
