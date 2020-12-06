@@ -1,0 +1,2 @@
+class ClientTagRelation < ApplicationRecord
+end

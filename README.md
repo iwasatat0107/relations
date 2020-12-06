@@ -143,6 +143,30 @@
 - belongs_to :user
 - has_one :client
 
+
+## tags テーブル
+
+| Column            | Type       | Options                         |
+| ----------------- | ---------- | ------------------------------- |
+| name              | string     | null: false, uniqueness: true   |
+
+
+### Association
+
+- has_many :client_tag_relations
+
+## client_tag_relations テーブル
+
+| Column            | Type       | Options                         |
+| ----------------- | ---------- | ------------------------------- |
+| client_id         | references | null: false, foreign_key:true   |
+| tag_id            | references | null: false, foreign_key:true   |
+
+
+### Association
+
+- has_many :clients
+
 ## 使用技術・言語
 フロントエンド(javascript, jQuery, HTML/CSS, Sass)
 バックエンド(Ruby on Rails6.0 )
