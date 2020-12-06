@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'favorites/create'
   get 'favorites/destroy'
   devise_for :users
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :users, only: [:show]
 end
