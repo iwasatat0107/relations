@@ -1,4 +1,4 @@
-<div class="card" style="width: 14rem;">
+<div class="card", style="width: 14rem;">
   <% if current_user.already_favorited?(client) %>
     <%= link_to client_favorites_path(client), method: :delete do %>
       <i class="fas fa-star"></i>
@@ -17,11 +17,12 @@
   <div class="card-body">
     <h5 class="card-title">Profile</h5>
       <span class="name">
-      <p class="card-text"><%= client.last_name %><%= client.first_name %> 様</p>
-      <p class="card-text"><%= client.last_name_kana %><%= client.first_name_kana %> 様</p>
+      <p class="card-text"><%= client.last_name %> <%= client.first_name %> 様</p>
+      <p class="card-text"><%= client.last_name_kana %> <%= client.first_name_kana %> 様</p>
       <p class="card-text"><%= client.company %></p>
       <p class="card-text"><%= client.prefecture.name %></p>
       <p class="card-text"><%= client.birthday %></p>
       </span>
   </div>
+  <%= link_to client.user.name, "#", class: :client_user %>
 </div>

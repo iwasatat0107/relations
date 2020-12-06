@@ -1,15 +1,17 @@
 <div class="contents row">
-  <% if user_signed_in? && current_user.id == @client.user_id %>
+  <% if user_signed_in? %>
     <div class="more">
       <ul class="more_list">
+      <%= render partial: "client", locals: { client: @client } %>
+      <% if user_signed_in? && current_user.id == @client.user.id %>
         <button type="button" class="btn btn-outline-primary">
           <%= link_to '編集', edit_client_path(@client.id), method: :get %>
         </button>
         <button type="button" class="btn btn-outline-secondary">
           <%= link_to '削除', client_path(@client.id), method: :delete %>
         </button>
+      <% end %>
       </ul>
-      <%= render partial: "client", locals: { client: @client } %>  
     </div>
  
   <div class="container">
@@ -27,13 +29,20 @@
             <%= memo.text %>
           </p>
         <ul class="more_list">
+        <% if user_signed_in? && current_user.id == memo.user.id %>
           <i class="fa fa-trash my-blue"></i> 
             <%= link_to 'メモ削除', client_memo_path(memo.client.id, memo.id), method: :delete %>
+        <% end %>
         </ul>
         <% end %>
     </div>
     <% else %>
-      <strong><p>※※※ カードの作成、メモには新規登録/ログインが必要です ※※※</p></strong>
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1 class="text-dark">Welcome to <%= image_tag 'hands.png' , size: '50x50' %>Re:lations</h1>
+          <p class="lead">※※※ カードの作成、メモには新規登録/ログインが必要です ※※※</p>
+      </div>
+    </header>
     <% end %>
   </div>
 </div>
