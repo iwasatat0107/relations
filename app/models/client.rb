@@ -14,6 +14,8 @@ class Client < ApplicationRecord
   has_many :checks, dependent: :destroy
   has_one_attached :image
   has_many :favorites, dependent: :destroy
+  has_many :client_tag_relations
+  has_many :tags, through: :client_tag_relations
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
