@@ -10,7 +10,7 @@
     <% end %>
   <% end %>
   <%= client.favorites.count %>
-  <p class="card-text">作成者: <%= link_to client.user.name, "#", class: :client_user %></p>
+  <p class="card-text">作成者: <%= link_to client.user.name, user_path(client.user_id), class: :client_user %></p>
   </div>
 
   <% if client.image.attached? %>

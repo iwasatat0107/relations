@@ -1,8 +1,7 @@
-<h1><%= current_user.name %> さんのお客様</h1>
-
+<% if user_signed_in? %>
+<h1><%= @user.name %> さんのページ</h1>
 <div class="contents row">
   <% @client.each do |client| %>
-    <% if user_signed_in? %>
       <div class="more">
         <ul class="more_list">
         <%= render partial: "clients/client", locals: { client: client } %>
