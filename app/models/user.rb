@@ -12,12 +12,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  
   has_many :clients, dependent: :destroy
   has_many :memos, dependent: :destroy
   has_many :checks, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  validates :name, presence: true
 
   def already_favorited?(client)
     self.favorites.exists?(client_id: client.id)
