@@ -7,7 +7,11 @@ FactoryBot.define do
     company                    {"テスト会社"}
     prefecture_id              { 1 }
     birthday                   { '1980-01-01' }
-    image                      {Faker::Lorem.sentence}
-    association :user 
+
+    association :user
+
+    after(:build) do |client|
+      client.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    end
   end
 end
