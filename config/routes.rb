@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'clients#index'
   resources :clients do
     resources :memos, only: [:create, :destroy]
-    resources :checks, only: [:new, :index, :create]
+    resources :checks, only: [:new, :index, :create, :destroy]
     resource :favorites, only: [:create, :destroy]
     collection do
       get 'search'

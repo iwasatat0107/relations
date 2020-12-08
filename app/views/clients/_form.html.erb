@@ -1,4 +1,4 @@
-<%= form_with(model: client, id: 'new_client', local: true) do |f| %>
+<%= form_with(model: client, local: true) do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
     <label class="form-image">
       <span class="image-file">画像</span>
@@ -10,12 +10,14 @@
       <label class="form-text">お名前(全角)</label>
       <span class="indispensable">必須</span>
         <%= f.text_field :last_name, placeholder: "last_name" %>
+      <span class="indispensable">任意</span>
         <%= f.text_field :first_name, placeholder: "first_name" %>
     </div>
     <div>
       <label class="form-text">お名前カナ(全角)</label>
       <span class="indispensable">必須</span>
         <%= f.text_field :last_name_kana, placeholder: "last_name_kana" %>
+      <span class="indispensable">任意</span>
         <%= f.text_field :first_name_kana, placeholder: "first_name_kana" %>
     </div>
     <div>

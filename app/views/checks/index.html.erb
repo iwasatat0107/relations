@@ -1,15 +1,29 @@
+<div class="clients">
+  <div class="item">
 <% if user_signed_in? && current_user.id == @client.user_id %>
+    <div class="container text-center">
       <ul class="more_list">
-        <button type="button" class="btn btn-outline-secondary">
-        <i class="fa fa-thumbs-up fa-2x "></i> 
-        <%= link_to "セルフチェック開始", new_client_check_path, class: "post", method: :get %>
-        </button>
         <%= render partial: "clients/client", locals: { client: @client } %>
       </ul>
+    </div>
+
+  </div>
+  <div class="item">
+    <p>自分自身の集中力や傾聴力がどうなっていたか、<%= @client.last_name %> <%= @client.first_name %> 様への応対を振り返りましょう。</p>
+    <p>応対した内容について振り返るのは、応対した内容をセルフチェックすることでより傾聴力を高めるためです。</p>
+    <p>次回の応対に向けて、どのように改善するかを考えましょう。</p>
+    <i class="fa fa-thumbs-up fa-4x "></i> 
+        <%= link_to "セルフチェック開始", new_client_check_path, class: "btn btn-outline-primary my-2 my-sm-0", method: :get %>
+  </div>
+</div>
+
 <div class="contents row">
-    <% @checks.each do |check| %>
-      <div class="more">
-        <%= render partial: "check", locals: { check: check } %>
+    <% @checks.each.with_index(1) do |check, idx| %>
+    <div class="more">
+      <p><strong><%= check.user.name %>のセルフチェック <%= idx %>：</strong></p>
+      <%= render partial: "check", locals: { check: check } %>
+    <i class="fa fa-trash my-blue"></i> 
+      <%= link_to 'チェック削除', client_check_path(check.client.id, check.id), method: :delete %>
       </div>
     <% end %>
 </div>

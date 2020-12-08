@@ -1,15 +1,17 @@
 <div class="card" style="width: 14rem;">
+<button type="button" class="btn btn-outline-secondary">
   <div class="card-body">
     <h5 class="card-title">Meeting</h5>
       <span class="name">
       <p><%= check.title %></p>
       <p><%= check.client.last_name %> 様</p>
       <p><%= check.created_at.strftime('%Y/%m/%d') %></p>
-      <p><%= check.smile.name %></p>
-      <p><%= check.aizuchi.name %></p>
-      <p><%= check.empathy.name %></p>
-      <p><%= check.reaction.name %></p>
-      <p><%= check.question.name %></p>
+      <p>笑顔: <%= check.smile.name %></p>
+      <p>相槌: <%= check.aizuchi.name %></p>
+      <p>共感: <%= check.empathy.name %></p>
+      <p>反応: <%= check.reaction.name %></p>
+      <p>質問: <%= check.question.name %></p>
       </span>
   </div>
+  </button>
 </div>

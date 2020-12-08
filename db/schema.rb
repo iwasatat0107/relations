@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2020_12_05_080626) do
     t.string "title", null: false
     t.bigint "user_id", null: false
     t.bigint "client_id", null: false
-    t.integer "smile_id"
-    t.integer "aizuchi_id"
-    t.integer "empathy_id"
-    t.integer "reaction_id"
-    t.integer "question_id"
+    t.integer "smile_id", null: false
+    t.integer "aizuchi_id", null: false
+    t.integer "empathy_id", null: false
+    t.integer "reaction_id", null: false
+    t.integer "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_checks_on_client_id"
@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 2020_12_05_080626) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
-    t.string "first_name", null: false
+    t.string "first_name"
     t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
+    t.string "first_name_kana"
     t.string "company"
     t.integer "prefecture_id"
     t.date "birthday"

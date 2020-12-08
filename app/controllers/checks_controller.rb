@@ -1,5 +1,5 @@
 class ChecksController < ApplicationController
-  before_action :set_check, only: [:index, :new, :create]
+  before_action :set_check, only: [:index, :new, :create, :destroy]
   before_action :move_to_index, except: :index
 
   def index
@@ -15,10 +15,15 @@ class ChecksController < ApplicationController
     @check = Check.new(check_params)
     if @check.valid?
       @check.save
-      redirect_to root_path
+      redirect_to client_checks_path(@client.id)
     else
       render :new
     end 
+  end
+
+  def destroy
+    Check.find_by(id: params[:id], client_id: params[:client_id]).destroy
+    redirect_to request.referer
   end
 
   private

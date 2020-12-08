@@ -1,3 +1,4 @@
+<div class="container text-center">
 <div class="contents row">
 <% if user_signed_in? && current_user.id == @client.user.id %>
     <div class="container">
@@ -11,4 +12,5 @@
       <h5 class="m-0 text-center text-dark">カードの編集、削除、メモの削除、セルフチェックは作成者に限ります。</h5>
     </div>
 <% end %>
+</div>
 </div>
