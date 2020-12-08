@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :checks, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 10 }
 
   def already_favorited?(client)
     self.favorites.exists?(client_id: client.id)
