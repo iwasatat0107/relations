@@ -10,14 +10,14 @@ class Client < ApplicationRecord
   
   with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
     validates :last_name, presence: true, length: { maximum: 10 }
-    validates :first_name, length: { maximum: 10 } ,allow_blank: true
+    validates :first_name,allow_blank: true, length: { maximum: 10 }
   end
   with_options format: { with: /\A[ァ-ヶー－]+\z/ } do
-    validates :last_name_kana, length: { maximum: 10 }
-    validates :first_name_kana, length: { maximum: 10 } ,allow_blank: true
+    validates :last_name_kana, presence: true, length: { maximum: 10 }
+    validates :first_name_kana, allow_blank: true, length: { maximum: 10 }
   end
 
-  validates :company, length: { maximum: 20 }
+  validates :company, length: { maximum: 15 }
 
   def self.search(search)
     if search != ""
