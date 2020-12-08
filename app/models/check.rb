@@ -9,7 +9,7 @@ class Check < ApplicationRecord
   belongs_to :user
   belongs_to :client
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 10 }
 
   with_options numericality: { other_than: 0 } do
     validates :smile_id
