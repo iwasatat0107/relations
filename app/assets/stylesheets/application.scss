@@ -23,26 +23,36 @@
 
  @import "bootstrap";
 
- body {
-  padding: 10px 10px;
+
+
+header {
+  padding: 120px 0 30px;
 }
 
- .container {
-  margin: 20px;
- }
+section {
+  padding: 150px 0;
+}
 
  .more {
    margin-top: 20px;
  }
 
+ .more_list {
+  margin-top: 40px;
+}
+
  .card {
-  margin: 20px;
+  margin: 30px;
+ }
+
+ .container {
+  padding: 20px 0;
  }
 
  .purchase-btn {
   height: 120px;
   width: 90px;
-  background: #6c757d;
+  background: #007bff;
   text-align: center;
   border-radius: 5%;
   bottom: 28px;
@@ -70,3 +80,9 @@ img {
 }
 
 .my-blue {color: #007bff}
+
+.clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

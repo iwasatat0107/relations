@@ -1,15 +1,21 @@
 <% if user_signed_in? %>
+   <div class="container text-center">
+      <div class="item">
+        <p>お客様の情報をカードに記録することができます。</p>
+        <p>お客様カードは社員同士で情報の共有、更新、ブックマークができます。</p>
+        <p>社員は自分の対応を振り返ることで、傾聴力の向上を目指します。</p>
+        <p>オンラインミーティングの話題を提供します。</p>
+      </div>
       <ul class="more_list">
-        <button type="button" class="btn btn-outline-secondary">
         <%= image_tag 'hands.png' , size: '50x50' %>
-        <%= link_to "お客様カード新規作成", new_client_path, class: "post", method: :get %>
-        </button>
+        <%= link_to "お客様カード新規作成", new_client_path, class: "btn btn-outline-primary my-2 my-sm-0", method: :get %>
       </ul>
+    </div>
 <% end %>
 <div class="contents row">
   <% @clients.each do |client| %>
     <% if user_signed_in? %>
-      <div class="more">
+      <div class="more text-center">
         <ul class="more_list">
         <%= render partial: "client", locals: { client: client } %>
           <button type="button" class="btn btn-outline-primary">

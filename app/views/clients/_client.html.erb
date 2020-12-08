@@ -1,4 +1,5 @@
 <div class="card", style="width: 14rem;">
+<button type="button" class="btn btn-outline-secondary">
   <div>
   <% if current_user.already_favorited?(client) %>
     <%= link_to client_favorites_path(client), method: :delete do %>
@@ -19,11 +20,12 @@
   <%= image_tag "noimage.png", :size =>'150x190', class: 'card-img-top' %>
   <% end %>
   <div class="card-body">
-    <h5 class="card-title">Profile</h5>
+    <h5 class="card-title"><%= link_to 'Profile', client_path(client.id), method: :get %></h5>
       <span class="name">
       <p class="card-text"><%= client.last_name %> <%= client.first_name %> 様</p>
       <p class="card-text"><%= client.last_name_kana %> <%= client.first_name_kana %> 様</p>
       <p class="card-text"><%= client.company %></p>
       </span>
   </div>
+  </button>
 </div>

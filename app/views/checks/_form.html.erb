@@ -7,27 +7,27 @@
     </div>
     <div class="field">
         <label class="form-text">笑顔で対応できましたか？</label>
-        <span class="any">任意</span>
+        <span class="any">必須</span>
         <%= f.collection_select :smile_id, Smile.all, :id, :name, {} %>
     </div>
     <div class="field">
         <label class="form-text">相槌をして聞けましたか？</label>
-        <span class="any">任意</span>
+        <span class="any">必須</span>
         <%= f.collection_select :aizuchi_id, Aizuchi.all, :id, :name, {} %>
     </div>
     <div class="field">
         <label class="form-text">共感を示せましたか？</label>
-        <span class="any">任意</span>
+        <span class="any">必須</span>
         <%= f.collection_select :empathy_id, Empathy.all, :id, :name, {} %>
     </div>
     <div class="field">
         <label class="form-text">反応できましたか？</label>
-        <span class="any">任意</span>
+        <span class="any">必須</span>
         <%= f.collection_select :reaction_id, Reaction.all, :id, :name, {} %>
     </div>
     <div class="field">
         <label class="form-text">質問できましたか？</label>
-        <span class="any">任意</span>
+        <span class="any">必須</span>
         <%= f.collection_select :question_id, Question.all, :id, :name, {} %>
     </div>
       <%= f.submit('保存',class: 'btn btn-primary btn-lg my-1 mb-5 px-5')%>

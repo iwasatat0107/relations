@@ -11,8 +11,7 @@
   </head>
 
   <body>
-    <header class="header">
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-dark bg-dark fixed-top" id="mainNav">
         <h2 class="display-5"><a href="/"><i class="far fa-address-card"></i> Re:lations</a></h2>
     <% if user_signed_in? %>
           <div class="user_nav grid-6">
@@ -24,27 +23,47 @@
           <% end %>
           </div>
     <% else %>
-          <div class="grid-6">
-            <i class="fa fa-hand-pointer my-blue"></i> <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
-            <i class="far fa-address-card my-blue"></i> <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            <i class="fa fa-key my-blue"></i> <%= link_to "ログイン", new_user_session_path, class: "post" %>
-          </div>
+          <div class="user_nav grid-6">
+          <i class="fa fa-address-card my-blue"></i><a class="text-primary" href="#about">About</a>
+          <i class="fa fa-laptop my-blue"></i><a class="text-primary" href="#services">Issue</a>
+          <i class="fa fa-street-view my-blue"></i><a class="text-primary" href="#contact">Why</a>
+          <i class="far fa-thumbs-up my-blue"></i> <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          <i class="fa fa-hand-pointer my-blue"></i> <%= link_to "ログイン", new_user_session_path, class: "post" %>
+        </div>
     <% end %>
       </nav>
     <header class="bg-primary text-white">
     <div class="container text-center">
-      <p class="lead">社内用 顧客カード 管理アプリ</p>
+      <p class="lead">お客様カード 記録アプリ</p>
       <h1 class="text-white">
       <% unless user_signed_in? %>
       Welcome to
       <% end %>
-      <i class="far fa-address-card"></i>Re:lations</h1>
+      <a href="/", class="text-white"><i class="far fa-address-card"></i>Re:lations</a></h1>
       <% unless user_signed_in? %>
       <p class="lead">リレーションズは、「対人関係で、幸せに気がつく」現代のビジネスカードです。</p>
       <% end %>
-    </div>
-  </header>
-    </header>
+      </div>
+      </header>
+    
+      <% unless user_signed_in? %>
+      
+      <div class="container text-center">
+      <button type="button" class="btn btn-outline-secondary">
+      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+      </button>
+      <button type="button" class="btn btn-outline-secondary">
+      <%= link_to "ログイン", new_user_session_path, class: "post" %>
+      </button>
+      </div>
+      <div class="container text-center">
+      <button type="button" class="btn btn-outline-secondary">
+      <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %>
+      </button>
+        <p>ゲストログインからご覧いただけます。</p>
+      </div>
+
+      <% end %>
         <div class='container'>
           <%= yield %>
         </div>
@@ -53,11 +72,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2><i class="fa fa-street-view fa-2x "></i> About</h2>
-          <p class="lead">人の悩みは、対人関係</p>
+          <h2><i class="fa fa-address-card fa-2x "></i> About</h2>
+          <p class="lead my-blue">お客様の情報を社内で共有・振り返り</p>
           <ul>
-            <p>アドラー心理学では、「人間の悩みは、全て対人関係の悩みである」といわれています。</p>
-            <p>正しい対人関係を構築できれば、この世界は、幸せで満ちていることに気がつくでしょう。</p>
+            <p>お客様の情報をカードに記録することができます。</p>
+            <p>お客様カードは社員同士で情報の共有、更新、ブックマークができます。</p>
+            <p>社員は自分の対応を振り返ることで、傾聴力の向上を目指します。</p>
           </ul>
         </div>
       </div>
@@ -69,10 +89,11 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2><i class="fa fa-laptop fa-2x "></i> Issue</h2>
-          <p class="lead">オンラインでの対人関係の増加</p>
+          <p class="lead my-blue">オンラインによる対人関係の変化</p>
           <ul>
-          <p>課題の背景は、ビジネスパーソンのリモート業務が増加したことです。</p>
-          <p>オンラインでは、名刺交換や雑談や減り、コミュニケーションも変化しています。</p>
+          <p>課題の背景は、ビジネスパーソンのリモート業務が増加傾向にあることです。</p>
+          <p>リモートでの面会では、名刺交換の機会はありません。</p>
+          <p>突発的な雑談の機会が減り、コミュニケーションも変化しています。</p>
           </ul>
         </div>
       </div>
@@ -83,11 +104,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2><i class="fa fa-thumbs-up fa-2x "></i> Functions</h2>
-          <p class="lead">お客様とオンラインで会話して、成長できる自分に</p>
+          <h2><i class="fa fa-street-view fa-2x "></i> Why</h2>
+          <p class="lead my-blue">人の全ての悩みは対人関係</p>
           <ul>
-            <p>お客様の情報をカードに記録し、社内で共有ができます。</p>
-            <p>社員は自分の態度を振り返り記録して、傾聴力が向上します。</p>
+            <p>アドラー心理学では、「人間の悩みは、全て対人関係の悩みである」といわれています。</p>
+            <p>対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気がつくでしょう。</p>
           </ul>
         </div>
       </div>
