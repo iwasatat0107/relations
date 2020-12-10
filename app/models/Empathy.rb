@@ -1,5 +1,4 @@
 class Empathy < ActiveHash::Base
-
   self.data = [
     { id: 0, name: '---' },
     { id: 1, name: '非常に悪い' },

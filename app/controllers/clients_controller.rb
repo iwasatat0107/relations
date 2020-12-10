@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_action :move_to_index, except: [:index, :search]
 
   def index
-    @clients = Client.includes(:user).order("created_at DESC")
+    @clients = Client.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end 
+    end
   end
 
   def destroy
@@ -29,12 +29,12 @@ class ClientsController < ApplicationController
   end
 
   def update
-      @client.valid?
+    @client.valid?
     if @client.update(client_params)
       redirect_to "/clients/#{@client.id}"
     else
       render :edit
-    end 
+    end
   end
 
   def show
@@ -49,7 +49,8 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :company, :prefecture_id, :birthday, :image).merge(user_id: current_user.id)
+    params.require(:client).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :company, :prefecture_id,
+                                   :birthday, :image).merge(user_id: current_user.id)
   end
 
   def set_client
@@ -57,8 +58,6 @@ class ClientsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end

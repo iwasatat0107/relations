@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :check do
-    title                 { "テストチェック" }
+    title                 { 'テストチェック' }
     smile_id              { 1 }
     aizuchi_id            { 1 }
     empathy_id            { 1 }

@@ -4,7 +4,7 @@ class ChecksController < ApplicationController
 
   def index
     @check = Client.new
-    @checks = @client.checks.includes(:user).order("created_at DESC")
+    @checks = @client.checks.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -18,7 +18,7 @@ class ChecksController < ApplicationController
       redirect_to client_checks_path(@client.id)
     else
       render :new
-    end 
+    end
   end
 
   def destroy
@@ -27,8 +27,11 @@ class ChecksController < ApplicationController
   end
 
   private
+
   def check_params
-    params.require(:check).permit(:title, :smile_id, :aizuchi_id, :empathy_id, :reaction_id, :question_id).merge(user_id: current_user.id, client_id: params[:client_id])
+    params.require(:check).permit(:title, :smile_id, :aizuchi_id, :empathy_id, :reaction_id, :question_id).merge(
+      user_id: current_user.id, client_id: params[:client_id]
+    )
   end
 
   def set_check
@@ -36,9 +39,6 @@ class ChecksController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? && current_user.id == @client.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in? && current_user.id == @client.user_id
   end
-
 end

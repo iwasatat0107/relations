@@ -5,7 +5,7 @@ class Check < ApplicationRecord
   belongs_to_active_hash :empathy
   belongs_to_active_hash :reaction
   belongs_to_active_hash :question
-  
+
   belongs_to :user
   belongs_to :client
 
@@ -18,5 +18,4 @@ class Check < ApplicationRecord
     validates :reaction_id
     validates :question_id
   end
-
 end

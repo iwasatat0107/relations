@@ -10,6 +10,7 @@ class MemosController < ApplicationController
   end
 
   private
+
   def memo_params
     params.require(:memo).permit(:text).merge(user_id: current_user.id, client_id: params[:client_id])
   end
