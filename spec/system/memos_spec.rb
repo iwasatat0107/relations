@@ -13,7 +13,7 @@ RSpec.describe 'メモ記録', type: :system do
     fill_in 'Password', with: @client.user.password
     find('input[name="commit"]').click
     expect(current_path).to eq root_path
-    # クライアント1に「お客様メモ」ボタンがあることを確認する
+    # クライアントに「お客様メモ」ボタンがあることを確認する
     expect(
       all(".more")[0].hover
     ).to have_link 'お客様メモ', href: client_path(@client)
