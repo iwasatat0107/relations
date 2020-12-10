@@ -34,6 +34,15 @@ RSpec.describe 'メモ記録', type: :system do
       expect(page).to have_content @memo
    end
   end
+end
+
+RSpec.describe 'メモ削除', type: :system do
+    before do
+      @client1 = FactoryBot.create(:client)
+      @client2 = FactoryBot.create(:client)
+      @memo = Faker::Lorem.sentence
+      sleep(1)
+    end
   context 'メモが削除ができるとき' do
     it 'ログインしたユーザーは自らが作成したメモの削除ができる' do
       # クライアント1を作成したユーザーでログインする
