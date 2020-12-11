@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "クライアント作成", type: :system do
+RSpec.describe 'クライアント作成', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @client_last_name = "阿部"
-    @client_last_name_kana = "タロウ"
+    @client_last_name = '阿部'
+    @client_last_name_kana = 'タロウ'
   end
-  context 'クライアント作成ができるとき'do
+  context 'クライアント作成ができるとき' do
     it 'ログインしたユーザーは新規作成できる' do
       # ログインする
       visit new_user_session_path
@@ -23,9 +23,9 @@ RSpec.describe "クライアント作成", type: :system do
       fill_in 'client_last_name', with: @client_last_name
       fill_in 'client_last_name_kana', with: @client_last_name_kana
       # 送信するとClientモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[value="完了"]').click
-      }.to change { Client.count }.by(1)
+      end.to change { Client.count }.by(1)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のクライアントが存在することを確認する（last_name）
@@ -34,7 +34,7 @@ RSpec.describe "クライアント作成", type: :system do
       expect(page).to have_content(@client_last_name_kana)
     end
   end
-  context 'クライアント作成ができないとき'do
+  context 'クライアント作成ができないとき' do
     it 'ログインしていないと新規作成ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -57,13 +57,13 @@ RSpec.describe 'クライアント詳細', type: :system do
     expect(current_path).to eq root_path
     # クライアントに「お客様メモ」ボタンがあることを確認する
     expect(
-      all(".more")[0].hover
+      all('.more')[0].hover
     ).to have_link 'お客様メモ', href: client_path(@client)
     # お客様メモページに遷移する
     visit client_path(@client)
     # お客様メモページにクライアントの内容が含まれている
-    expect(page).to have_content("#{@client.last_name}")
-    expect(page).to have_content("#{@client.last_name_kana}")
+    expect(page).to have_content(@client.last_name.to_s)
+    expect(page).to have_content(@client.last_name_kana.to_s)
     # メモ用のフォームが存在する
     expect(page).to have_selector 'form'
   end
@@ -91,13 +91,13 @@ RSpec.describe 'クライアント編集', type: :system do
       expect(current_path).to eq root_path
       # クライアント1に「お客様メモ」ボタンがあることを確認する
       expect(
-        all(".more")[1].hover
+        all('.more')[1].hover
       ).to have_link 'お客様メモ', href: client_path(@client1)
       # お客様メモページに遷移する
       visit client_path(@client1)
       # クライアント1に「編集」ボタンがあることを確認する
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_link '編集', href: edit_client_path(@client1)
       # 編集ページへ遷移する
       visit edit_client_path(@client1)
@@ -112,9 +112,9 @@ RSpec.describe 'クライアント編集', type: :system do
       fill_in 'client_last_name', with: "#{@client1.last_name}+編集テスト"
       fill_in 'client_last_name_kana', with: "#{@client1.last_name_kana}+ヘンシュウテスト"
       # 編集してもClientモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[value="完了"]').click
-      }.to change { Client.count }.by(0)
+      end.to change { Client.count }.by(0)
       # トップページに遷移する
       visit root_path
     end
@@ -129,13 +129,13 @@ RSpec.describe 'クライアント編集', type: :system do
       expect(current_path).to eq root_path
       # クライアント1に「お客様メモ」ボタンがあることを確認する
       expect(
-        all(".more")[1].hover
+        all('.more')[1].hover
       ).to have_link 'お客様メモ', href: client_path(@client1)
       # お客様メモページに遷移する
       visit client_path(@client1)
       # クライアント2に「編集」ボタンがないことを確認する
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_no_link '編集', href: edit_client_path(@client2)
     end
   end
@@ -156,18 +156,18 @@ RSpec.describe 'クライアント削除', type: :system do
       expect(current_path).to eq root_path
       # クライアント1に「お客様メモ」ボタンがあることを確認する
       expect(
-        all(".more")[1].hover
+        all('.more')[1].hover
       ).to have_link 'お客様メモ', href: client_path(@client1)
       # お客様メモページに遷移する
       visit client_path(@client1)
       # クライアント1に「削除」ボタンがあることを確認する
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_link '削除', href: client_path(@client1)
       # クライアントを削除するとレコードの数が1減ることを確認する
-      expect{
-        all(".more")[0].hover.find_link('削除', href: client_path(@client1)).click
-      }.to change { Client.count }.by(-1)
+      expect do
+        all('.more')[0].hover.find_link('削除', href: client_path(@client1)).click
+      end.to change { Client.count }.by(-1)
       # トップページに遷移する
       visit root_path
     end
@@ -182,7 +182,7 @@ RSpec.describe 'クライアント削除', type: :system do
       expect(current_path).to eq root_path
       # クライアント2に「削除」ボタンが無いことを確認する
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_no_link '削除', href: client_path(@client2)
     end
   end

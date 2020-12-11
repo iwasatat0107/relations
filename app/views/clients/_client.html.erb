@@ -1,16 +1,7 @@
 <div class="card", style="width: 14rem;">
 <button type="button" class="btn btn-outline-secondary">
   <div>
-  <% if current_user.already_favorited?(client) %>
-    <%= link_to client_favorites_path(client), method: :delete do %>
-      <i class="fas fa-star"></i>
-    <% end %>
-  <% else %>
-    <%= link_to client_favorites_path(client), method: :post do %>
-      <i class="far fa-star"></i>
-    <% end %>
-  <% end %>
-  <%= client.favorites.count %>
+    <%= render partial: 'favorites/favorite', locals: { client: client} %>
   <p class="card-text">作成者: <%= link_to client.user.name, user_path(client.user_id), class: :client_user %></p>
   </div>
 

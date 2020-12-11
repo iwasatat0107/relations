@@ -7,7 +7,7 @@ RSpec.describe 'チェック開始', type: :system do
     @check = FactoryBot.create(:check)
     sleep(1)
   end
-  context 'チェックができるとき'do
+  context 'チェックができるとき' do
     it 'ログインしたユーザーは自らが作成したクライアントでチェックができる' do
       # クライアント1を投稿したユーザーでログインする
       visit new_user_session_path
@@ -17,34 +17,34 @@ RSpec.describe 'チェック開始', type: :system do
       expect(current_path).to eq root_path
       # クライアント1に「セルフチェック」のボタンがあることを確認する
       expect(
-        all(".more")[2].hover
+        all('.more')[2].hover
       ).to have_link 'セルフチェック', href: client_checks_path(@client1)
       # チェックページに移動する
       visit client_checks_path(@client1)
       # クライアント1に「セルフチェック開始」ボタンがあることを確認する
       expect(
-        all(".item")[1].hover
+        all('.item')[1].hover
       ).to have_link 'セルフチェック開始', href: new_client_check_path(@client1)
       # チェックページに移動する
       visit new_client_check_path(@client1)
       # フォームに情報を入力する
       fill_in 'check_title', with: @check_title
-      find("#check_smile_id").find("option[value='1']").select_option
-      find("#check_aizuchi_id").find("option[value='1']").select_option
-      find("#check_empathy_id").find("option[value='1']").select_option
-      find("#check_reaction_id").find("option[value='1']").select_option
-      find("#check_question_id").find("option[value='1']").select_option
+      find('#check_smile_id').find("option[value='1']").select_option
+      find('#check_aizuchi_id').find("option[value='1']").select_option
+      find('#check_empathy_id').find("option[value='1']").select_option
+      find('#check_reaction_id').find("option[value='1']").select_option
+      find('#check_question_id').find("option[value='1']").select_option
       # 送信するとCheckモデルのカウントが上がらないことを確認する
-      expect{
+      expect do
         find('input[value="保存"]').click
-      }.to change { Check.count }.by(0)
+      end.to change { Check.count }.by(0)
       # チェックページに遷移する
       visit client_checks_path(@client1)
-      # チェックページには先ほど投稿した内容のチェックが存在することを確認する 
+      # チェックページには先ほど投稿した内容のチェックが存在することを確認する
       expect(page).to have_content @check_title
     end
   end
-  context 'チェックができないとき'do
+  context 'チェックができないとき' do
     it 'ログインしていないとチェックページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -56,7 +56,7 @@ RSpec.describe 'チェック開始', type: :system do
       expect(current_path).to eq root_path
       # クライアント1を作成したユーザー以外にはチェックページへのリンクがない
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_no_link 'セルフチェック', href: client_checks_path(@client1)
     end
   end
@@ -79,35 +79,35 @@ RSpec.describe 'チェック削除', type: :system do
       expect(current_path).to eq root_path
       # クライアント1に「セルフチェック」のボタンがあることを確認する
       expect(
-        all(".more")[2].hover
+        all('.more')[2].hover
       ).to have_link 'セルフチェック', href: client_checks_path(@client1)
       # チェックページに移動する
       visit client_checks_path(@client1)
       # クライアント1に「セルフチェック開始」ボタンがあることを確認する
       expect(
-        all(".item")[1].hover
+        all('.item')[1].hover
       ).to have_link 'セルフチェック開始', href: new_client_check_path(@client1)
       # チェックページに移動する
       visit new_client_check_path(@client1)
       # フォームに情報を入力する
       fill_in 'check_title', with: @check_title
-      find("#check_smile_id").find("option[value='1']").select_option
-      find("#check_aizuchi_id").find("option[value='1']").select_option
-      find("#check_empathy_id").find("option[value='1']").select_option
-      find("#check_reaction_id").find("option[value='1']").select_option
-      find("#check_question_id").find("option[value='1']").select_option
+      find('#check_smile_id').find("option[value='1']").select_option
+      find('#check_aizuchi_id').find("option[value='1']").select_option
+      find('#check_empathy_id').find("option[value='1']").select_option
+      find('#check_reaction_id').find("option[value='1']").select_option
+      find('#check_question_id').find("option[value='1']").select_option
       # 送信するとCheckモデルのカウントが上がらないことを確認する
-      expect{
+      expect do
         find('input[value="保存"]').click
-      }.to change { Check.count }.by(0)
+      end.to change { Check.count }.by(0)
       # トップページに遷移する
       visit client_checks_path(@client1)
-      
+
       # トップページに遷移する
       visit root_path
       # クライアント1に「セルフチェック」ボタンがあることを確認する
       expect(
-        all(".more")[2].hover
+        all('.more')[2].hover
       ).to have_link 'セルフチェック'
     end
   end
@@ -121,7 +121,7 @@ RSpec.describe 'チェック削除', type: :system do
       expect(current_path).to eq root_path
       # クライアント2に「セルフチェック」ボタンが無いことを確認する
       expect(
-        all(".more")[0].hover
+        all('.more')[0].hover
       ).to have_no_link 'セルフチェック'
     end
   end

@@ -1,0 +1,10 @@
+<% if current_user.already_favorited?(client) %>
+    <%= link_to client_favorites_path(client.id), method: :delete do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+  <% else %>
+    <%= link_to client_favorites_path(client.id), method: :post do %>
+      <i class="far fa-star"></i>
+    <% end %>
+<% end %>
+  <%= client.favorites.count %>

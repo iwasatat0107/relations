@@ -20,7 +20,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 10 }
 
   def already_favorited?(client)
-    self.favorites.exists?(client_id: client.id)
+    favorites.exists?(client_id: client.id)
   end
-
 end

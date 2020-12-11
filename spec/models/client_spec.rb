@@ -6,42 +6,42 @@ RSpec.describe Client, type: :model do
   end
 
   describe 'クライアントの保存' do
-    context "クライアントが保存できる場合" do
-      it "last_nameとlast_name_kanaがあればクライアントは保存される" do
+    context 'クライアントが保存できる場合' do
+      it 'last_nameとlast_name_kanaがあればクライアントは保存される' do
         expect(@client).to be_valid
       end
-      it "last_nameとlast_name_kanaが10文字以下でクライアントは保存される" do
-        @client.last_name = "あいうえおかきくけこ"
-        @client.last_name_kana = "アイウエオカキクケコ"
+      it 'last_nameとlast_name_kanaが10文字以下でクライアントは保存される' do
+        @client.last_name = 'あいうえおかきくけこ'
+        @client.last_name_kana = 'アイウエオカキクケコ'
         expect(@client).to be_valid
       end
     end
 
-    context "クライアントが保存できない場合" do
-      it "last_nameがないとクライアントは保存できない" do
-        @client.last_name = ""
+    context 'クライアントが保存できない場合' do
+      it 'last_nameがないとクライアントは保存できない' do
+        @client.last_name = ''
         @client.valid?
         expect(@client.errors.full_messages).to include("Last name can't be blank")
       end
-      it "last_name_kanaがないとクライアントは保存できない" do
-        @client.last_name_kana = ""
+      it 'last_name_kanaがないとクライアントは保存できない' do
+        @client.last_name_kana = ''
         @client.valid?
         expect(@client.errors.full_messages).to include("Last name kana can't be blank")
       end
-      it "ユーザーが紐付いていないとクライアントは保存できない" do
+      it 'ユーザーが紐付いていないとクライアントは保存できない' do
         @client.user = nil
         @client.valid?
-        expect(@client.errors.full_messages).to include("User must exist")
+        expect(@client.errors.full_messages).to include('User must exist')
       end
-      it "last_nameが11文字以上だとクライアントは保存できない" do
-        @client.last_name = "あいうえおかきくけこさ"
+      it 'last_nameが11文字以上だとクライアントは保存できない' do
+        @client.last_name = 'あいうえおかきくけこさ'
         @client.valid?
-        expect(@client.errors.full_messages).to include("Last name is too long (maximum is 10 characters)")
+        expect(@client.errors.full_messages).to include('Last name is too long (maximum is 10 characters)')
       end
-      it "last_name_kanaが11文字以上だとクライアントは保存できない" do
-        @client.last_name_kana = "アイウエオカキクケコサ"
+      it 'last_name_kanaが11文字以上だとクライアントは保存できない' do
+        @client.last_name_kana = 'アイウエオカキクケコサ'
         @client.valid?
-        expect(@client.errors.full_messages).to include("Last name kana is too long (maximum is 10 characters)")
+        expect(@client.errors.full_messages).to include('Last name kana is too long (maximum is 10 characters)')
       end
       it 'last_nameが全角入力でなければ登録できない' do
         @client.last_name = 'ｱｲｳｴｵ'
@@ -53,10 +53,10 @@ RSpec.describe Client, type: :model do
         @client.valid?
         expect(@client.errors.full_messages).to include('Last name kana is invalid')
       end
-      it "companyが16文字以上だとクライアントは保存できない" do
-        @client.company = "アイウエオカキクケコサシスセソタ"
+      it 'companyが16文字以上だとクライアントは保存できない' do
+        @client.company = 'アイウエオカキクケコサシスセソタ'
         @client.valid?
-        expect(@client.errors.full_messages).to include("Company is too long (maximum is 20 characters)")
+        expect(@client.errors.full_messages).to include('Company is too long (maximum is 20 characters)')
       end
     end
   end
