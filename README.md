@@ -4,7 +4,7 @@
 ## Overview
  **対人関係で幸せになるアプリケーション**
  
- ![relations_top](https://user-images.githubusercontent.com/72957556/101978453-6e68f580-3c98-11eb-96e7-3a9e16bbe2bf.png)
+![relations_rm_top](https://user-images.githubusercontent.com/72957556/101979209-6e6bf400-3c9e-11eb-8b4c-1a7ed2871ae4.png)
 
 
 ## 概要
@@ -17,10 +17,11 @@
 また、自分をメタ認知して、きちんと反復練習をすれば、誰でも人を惹きつけることができる。
 対人関係を正しく構築できれば、この世界は、幸せで満ちていることに気づけるのではないか。
  
+ ![relations_rm_index](https://user-images.githubusercontent.com/72957556/101979216-8774a500-3c9e-11eb-869c-ea09e90f7d47.png)
+ 
 ## URL
  
 ![デモ](https://)
-
 
  
 ## ペルソナ
@@ -50,6 +51,8 @@
 多くの取引先がいると、各相手との共通の話題を思い出せなくなくなる。
 現実のコミュニケーションだと、共通の話題も見つかりやすい。
 天気、経路、近くの美味しいお店、身につけてる物、相手の仕草...etc
+
+![relations_nm_new](https://user-images.githubusercontent.com/72957556/101979213-7fb50080-3c9e-11eb-8489-af11421cc745.png)
 
 ## 実装した機能
 
