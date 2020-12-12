@@ -4,8 +4,7 @@
 ## Overview
  **対人関係で幸せになるアプリケーション**
  
-![relations_rm_top](https://user-images.githubusercontent.com/72957556/101979209-6e6bf400-3c9e-11eb-8b4c-1a7ed2871ae4.png)
-
+![relations_rm_top](https://user-images.githubusercontent.com/72957556/101979299-47fa8880-3c9f-11eb-9aeb-cb7e5eee76b6.png)
 
 ## 概要
 **オンラインの顧客カード管理アプリ**
