@@ -59,7 +59,7 @@
 
 ## データベース設計
 
-![relations](https://user-images.githubusercontent.com/72957556/100700575-20730880-33e1-11eb-9b51-56ac6dbc472e.jpeg)
+![Re_lations](https://user-images.githubusercontent.com/72957556/101978634-bd635a80-3c99-11eb-94df-b1bd33027541.png)
 
 
 # テーブル設計
@@ -148,9 +148,10 @@
 - has_one :client
 
 ## 使用技術・言語
-フロントエンド(javascript, jQuery, HTML/CSS, Sass)
+フロントエンド(BootStrap, javascript, jQuery, HTML/SCSS)
 バックエンド(Ruby on Rails6.0 )
-テスト(RSpec, FactoryBot)
+単体テスト(RSpec, FactoryBot)
+結合テスト(System Spec, Capybara)
 データベース(Sequel Pro)
 開発環境(MacOS, VScode, Git, GitHub)
 
