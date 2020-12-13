@@ -73,3 +73,5 @@ gem 'pry-rails'
 gem 'jquery-rails'
 
 gem 'uglifier'
+
+gem "aws-sdk-s3", require: false
