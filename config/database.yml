@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: relations_production
-  username: relations
-  password: <%= ENV['RELATIONS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
