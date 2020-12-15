@@ -69,6 +69,18 @@ http://54.199.236.29/ <br>
 ![relations_nm_new](https://user-images.githubusercontent.com/72957556/101979213-7fb50080-3c9e-11eb-8489-af11421cc745.png)
 
 
+# メッセージ
+## 誰の何の課題を解決するか
+繰り返しになりますが、自分の課題と、時代背景からこのアプリケーションは生まれました。
+一つ一つの機能自体はいたってシンプルなものばかりです。機能面の多さにもあまり自信はありません。
+フロントの華やかさや見栄えも正直ないと思います。もちろん、実際に自分が使ってみると、まだまだ改善の余地ばかりでした。<br>
+
+しかしながら、何よりも「課題解決する手段」という軸を意識した制作を心掛けました。
+ただ単に作る目的で作ったわけではなく、実際に運用することも想定し、他の方のフィードバックや意見も取り入れました。
+素人なりに、何よりもまずはユーザーの目線に立ち、課題を解決する上で必要なもの手段は何かを考え、必死に手を動かしました。
+また、GitHubを活用し、「issueを確認 -> branchを切る -> 開発を行う -> pushする -> pull requestを送信する -> mergeする」といったチーム開発の流れを疑似的に再現するなど、より実践的な環境で作業を進めました。<br>
+もしご興味がありましたら、実際に触ってご意見をいただけると幸いです。
+
 ## 意識した点
 **N+1問題**<br>
 結論、includesメソッドを使用し、不要なSQL文を発行しないようにして、JOINで一括に取得するようにしました。
@@ -78,6 +90,7 @@ N+1問題を検知するgemで「bullet」がありますが、ログを見て�
 
 ## 頑張った点
 **テストコードを約1,000行近く書いたこと**<br>
+テストコードは同期の中で、1番多く書いた自信があります。
 単体テストでは、モデルとコントローラーの機能ごとに問題がないか確かめました。
 全てのモデルに単体テストを書き、バリデーションの挙動を確認しました。
 結合テストでは、ユーザーがブラウザで操作する一連の流れを再現して、問題がないか確かめました。
@@ -87,16 +100,16 @@ N+1問題を検知するgemで「bullet」がありますが、ログを見て�
 ## 苦労した点
 **AWSへ手動デプロイ**<br>
 最初はHerokuへデプロイしたのですが、サイトが立ち上がるのに通信速度が出なかったので改めてAWSで構築しました。
-工数の多さに驚き、一瞬怯みましたが、１人で6時間くらいで終わらせました。
+工数の多さに驚き、一瞬怯みましたが、悪戦苦闘しながらデプロイしました。
 途中で、新しい技術や概念理解に苦労しました。例えば、Unicornを理解するために必要な「プロセス」の概念です。
-そのたびに公式ドキュメント、Qiitaなどで情報を収集していきました。
+詰まるたびに公式ドキュメント、Qiitaなどで情報を収集していきました。
 その後、デプロイ作業をポピュラーな自動デプロイツール、Capistranoを導入しました。
 
 ## 今後の課題点
 **レスポンス速度の改善**<br>
-ユーザーからすると、画面遷移の待ち時間が長く感じられると思います。
-今は、ミリ秒単位でのレスポンスが求められるので、予め意識しておく必要がありました。
-今後は、非同期通信でリクエスト後に、ブラウザの一部分のみが更新されるように修正したいです。
+ユーザーからすると、画面遷移のまだ待ち時間が長く感じられると思います。
+今は、ミリ秒単位でのレスポンスが求められるので、予め意識しておく必要があると痛感しました。
+今後は、非同期通信でリクエスト後に、ブラウザの一部分のみが更新されるようにして改善したいです。
 
 ## 機能一覧
 
@@ -135,7 +148,7 @@ N+1問題を検知するgemで「bullet」がありますが、ログを見て�
 ・Capistrano<br>
 
 ## データベース設計
-![Re_lations](https://user-images.githubusercontent.com/72957556/101978634-bd635a80-3c99-11eb-94df-b1bd33027541.png)
+![relations_er2](https://user-images.githubusercontent.com/72957556/102198700-09b2d280-3f06-11eb-9739-37cf0d4682ca.png)
 
 
 # テーブル設計
@@ -161,9 +174,9 @@ N+1問題を検知するgemで「bullet」がありますが、ログを見て�
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | last_name          | string     | null: false                   |
-| first_name         | string     | null: false                   |
+| first_name         | string     |                               |
 | last_name_kana     | string     | null: false                   |
-| first_name_kana    | string     | null: false                   |
+| first_name_kana    | string     |                               |
 | company            | string     |                               |
 | prefecture_id      | integer    |                               | 
 | birthday           | date       |                               |
@@ -183,11 +196,11 @@ N+1問題を検知するgemで「bullet」がありますが、ログを見て�
 | title             | string      | null: false                    |
 | user_id           | references  | null: false, foreign_key:true  |
 | client_id         | references  | null: false, foreign_key:true  |
-| smile_id          | integer     |                                |
-| aizuchi_id        | integer     |                                |
-| empathy_id        | integer     |                                |
-| reaction_id       | integer     |                                |
-| question_id       | integer     |                                |
+| smile_id          | integer     | null: false,                   |
+| aizuchi_id        | integer     | null: false,                   |
+| empathy_id        | integer     | null: false,                   |
+| reaction_id       | integer     | null: false,                   |
+| question_id       | integer     | null: false,                   |
 
 ### Association
 
